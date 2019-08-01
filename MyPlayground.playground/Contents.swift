@@ -1,5 +1,47 @@
 import UIKit
 
+
+class Testing{
+    
+    var number : Int
+    
+    init(number : Int){
+    self.number = number
+    }
+    
+    init() {
+        self.number = 0
+    }
+    
+    func checkForPalindrome() -> Bool{
+        
+        var copyOfNumber = self.number
+        var reversedNumber = 0
+        while copyOfNumber > 0{
+            
+            let tempVar = copyOfNumber % 10
+            reversedNumber = (reversedNumber * 10) + tempVar
+            copyOfNumber /= 10
+        }
+        if reversedNumber == self.number{
+            return true
+        }
+        return false
+    }
+}
+
+var obj1 = Testing(number : 151)
+var obj2 = Testing(number : 1551)
+var obj3 = Testing()
+
+print(obj1.checkForPalindrome())
+print(obj2.checkForPalindrome())
+print(obj3.checkForPalindrome())
+
+
+
+
+
 var charVar : Character =  "a"
 print("CharVar is of type \(type(of : charVar))")
 
@@ -88,20 +130,3 @@ print("Reversed: \(reverseNumber(number: 152))")
 repeat{
     print("Atleast Once")
 }while(false)
-
-/*
-class Testing{
-    
-    var var1 : Int
-    var var2 : Int
-    
-    Testing(a : Int, b : Int){
-        self.var1 = a
-        self.var2 = b
-    }
-    
-    func printAB(){
-        print("a: \(self.var1)  b: \(self.var2)")
-    }
-}
- */
