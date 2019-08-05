@@ -105,12 +105,12 @@ class Strings{
         
         get{
             
-            var temp = str.index(str.startIndex, offsetBy: index)
+            let temp = str.index(str.startIndex, offsetBy: index)
             return str[temp]
         }
         
         set(newValue){
-            var temp = str.index(str.startIndex, offsetBy: index)
+            let temp = str.index(str.startIndex, offsetBy: index)
             str.remove(at: temp)
             str.insert(newValue, at: temp)
         }
@@ -121,4 +121,106 @@ print(obj6[7])
 obj6[1] = "C"
 print(obj6.str)
 
+
+//AUG 05
+print("----------------Aug 05---------------------")
+
+enum MathError : Error{
+    
+    case divideByZero
+    case rootNegetive
+}
+
+class EH{
+    
+    func divide(num : Int, denom : Int) throws -> Int{
+        
+        if(denom == 0){
+            throw MathError.divideByZero
+        }
+        return (num/denom)
+    }
+    
+    func root(num : Int) throws -> Double{
+        
+        if(num < 0){
+            throw MathError.rootNegetive
+        }
+        return sqrt(Double(num))
+    }
+}
+
+var obj7 = EH()
+
+do{
+    try
+        print(obj7.divide(num: 10, denom: 2))
+    try print(obj7.root(num: -25))
+    
+} catch MathError.divideByZero{
+    print("Divie By Zero")
+} catch MathError.rootNegetive{
+    print("Root of negeive")
+}
+
+class A {
+    
+    var a = 10
+}
+class B {
+    
+    var b = 20
+}
+
+class C{
+    
+    var c = 30
+}
+
+var aObj = A()
+var bObj = B()
+var cObj = C()
+
+var arr : [Any] =  [aObj, bObj, cObj]
+
+print(type(of : arr))
+//print(arr[1].b)
+
+//for x in arr{
+//    if x is B{
+//        print ("b")
+//    }
+//}
+
+print("cdsanas")
+//for x in arr{
+//    if x is B{
+//        let y = x as? B
+//        if let xx = y?.b{
+//            print(xx)
+//        }
+//    }
+//    else{
+//        print(x.a)
+//    }
+//}
+
+for x in arr{
+    if let y = x as? B{
+        print(y.b)
+    }
+}
+
+
+extension String{
+
+    func getCharAt(str : String, index : Int) -> Character{
+        
+        return str[str.index(str.startIndex, offsetBy: index)]
+    }
+}
+
+var str2 = "Prakruth"
+print(str2.getCharAt(str: str2, index: 0))
+print(str2[str2.startIndex])
 
