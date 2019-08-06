@@ -8,5 +8,7 @@
         <page name='StartEnd'/>
         <page name='FirstRepeating'/>
         <page name='Properties(Aug2Session)'/>
+        <page name='Bubble Sort'/>
+        <page name='Aug06Session'/>
     </pages>
 </playground>

@@ -224,3 +224,50 @@ var str2 = "Prakruth"
 print(str2.getCharAt(str: str2, index: 0))
 print(str2[str2.startIndex])
 
+enum Testing{
+    
+}
+
+
+
+//PROTOCOLS
+
+protocol AB{
+    
+    var x: Int{ get }
+    
+    func funA()
+    func funB()
+}
+
+extension AB{
+    func funC(){
+        
+    }
+}
+
+class BB: AB{
+    var x: Int{
+        get{
+            return 10
+        }
+    }
+    
+    func funB() {
+        print("In B B")
+    }
+    
+    func funC(){
+        print("In B C")
+    }
+    
+    func funA(){
+        print("In B A")
+    }
+}
+
+var obj9 = BB()
+print(obj9.x)
+print(obj9.funB())
+print(obj9.funA())
+print(obj9.funC())
