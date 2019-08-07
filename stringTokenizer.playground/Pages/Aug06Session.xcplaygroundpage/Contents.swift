@@ -186,8 +186,109 @@ enum Test2{
     case one
 }
 
+protocol X{
+//    public var x = 10
+    func fun()
+}
+
+class Y: X{
+     internal func fun(){
+        print(x)
+    }
+}
+
+
+
+
+
 //var xx = Test2
 //xx = nil
 
 
 print(String(10))
+
+
+print("Hello", separator: "", terminator: " ")
+print("World")
+
+var pi: Double? = 3.499
+print(Int(pi?.rounded() ?? 0))
+typealias intValue = Int
+
+pi = nil
+if let piInIf = pi{
+    print(pi ?? 0.0)
+    print(intValue(piInIf))
+}
+else{
+    print("NIL")
+}
+
+if let piInIf = pi{
+    print(piInIf)
+}
+
+var str1 = "221"
+var x = Int(str1) ?? 0
+print(type(of: x))
+
+enum StrError: Error{
+    case nullPointerException
+}
+
+func fun(_ str1: String, _ offset: Int) throws{
+    if offset >= str1.count{
+        throw StrError.nullPointerException
+    }
+    else{
+        print(str1[str1.index(str1.startIndex, offsetBy: offset)])
+    }
+}
+
+do {
+    try fun(str1, 25)
+}catch StrError.nullPointerException{
+    print(StrError.nullPointerException)
+}
+
+extension Array{
+    func safeGet(){
+        
+    }
+}
+
+
+
+func test() -> (x: Int, y: Int?)?{
+    
+    return (10, nil)
+}
+
+if let a = test(){
+    print(a.x+(a.y ?? 0))
+}
+else{
+    print(0)
+}
+
+func test2(number: Int..., x: Int ) -> Int{
+    
+    var sum = 0
+    for element in number{
+        sum += element
+    }
+    return sum
+}
+
+print(test2(number: 1,2,3,4,5,6, x: 10))
+
+func add2Ints(_ a: Int, _ b: Int) -> Int{
+    return a+b
+}
+
+func printType(someFunc: (Int, Int) -> Int, _ a: Int, _ b: Int ){
+    print(someFunc(a, b))
+}
+
+printType(someFunc: add2Ints, 100, 20)
+
